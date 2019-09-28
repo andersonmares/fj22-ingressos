@@ -14,9 +14,6 @@ import br.com.caelum.ingresso.model.Sessao;
 
 public class SessaoForm {
 	
-	@NotNull
-	private Integer id;
-	
 	@DateTimeFormat(pattern = "HH:mm")
 	@NotNull
 	private LocalTime horario;
@@ -36,14 +33,7 @@ public class SessaoForm {
 		return sessao;
 	}
 
-	public Integer getId() {
-		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
-	}
-
+	
 	public LocalTime getHorario() {
 		return horario;
 	}
