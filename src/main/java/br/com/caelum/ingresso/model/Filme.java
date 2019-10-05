@@ -38,7 +38,14 @@ public class Filme {
 		this.preco = preco;
 	}
     
-    public BigDecimal getPreco() {
+    
+    
+    public Filme(String nome) {
+		super();
+		this.nome = nome;
+	}
+
+	public BigDecimal getPreco() {
     	if(Objects.nonNull(preco)) {
     		return preco.setScale(2, RoundingMode.HALF_UP);
     	}
