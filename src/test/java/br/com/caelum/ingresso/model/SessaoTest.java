@@ -9,18 +9,24 @@ import org.junit.Test;
 import junit.framework.Assert;
 
 public class SessaoTest {
-
+	
 	@Test
-	public void o_preco_da_sessao_deve_ser_igual_a_somar_do_preco_da_sala_mais_o_preco_do_filme() {
+	public void	oPrecoDaSessaoDeveSerIgualASomaDoPrecoDaSalaMaisOPrecoDoFilme() {
+					Sala sala =	new	Sala("Eldorado - IMax",	new	BigDecimal("22.5"));
+					Filme filme	= new Filme("Rogue One", Duration.ofMinutes(120),		
+																					"SCI-FI",	new	BigDecimal("12.0"));
+					BigDecimal somaDosPrecosDaSalaEFilme =	sala.getPreco().add(filme.getPreco());
+					Sessao sessao =	new	Sessao(LocalTime.parse("10:00:00"),	filme, sala);
+					Assert.assertEquals( somaDosPrecosDaSalaEFilme,	sessao.getPreco());
+	}
+	
+	@Test(expected = IllegalArgumentException.class)
+	public void nao_deve_aceitar_sessao_que_nao_possua_filme() {
 		
-		Sala sala = new Sala("Eldorado - IMAX", new BigDecimal("22.5"));
-		Filme filme = new Filme("Rogue One", Duration.ofMinutes(120), "SCI-FI", new BigDecimal("12.0"));
+		Sala sala =	new	Sala("Eldorado - IMax",	new	BigDecimal("22.5"));
 		
-		BigDecimal somaDosPrecosDaSalaEFilme = sala.getPreco().add(filme.getPreco());
+		Sessao sessao =	new	Sessao(LocalTime.parse("10:00:00"),	null, sala);
 		
-		Sessao sessao = new Sessao(LocalTime.parse("10:00:00"), filme, sala);
-		
-		Assert.assertEquals(somaDosPrecosDaSalaEFilme, sessao.getPreco());
 	}
 	
 }

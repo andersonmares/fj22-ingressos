@@ -5,6 +5,7 @@ import java.math.RoundingMode;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Objects;
 
 import javax.validation.constraints.NotNull;
 
@@ -36,7 +37,10 @@ public class SalaForm {
     }
     
     public BigDecimal getPreco() {
-    	return preco.setScale(2, RoundingMode.HALF_UP);
+    	if (Objects.nonNull(preco)) {
+    		return preco.setScale(2, RoundingMode.HALF_UP);
+    	}
+    	return BigDecimal.ZERO;
     }
     
     public void setPreco(BigDecimal preco) {
