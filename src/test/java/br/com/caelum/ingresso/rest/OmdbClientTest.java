@@ -18,7 +18,7 @@ public class OmdbClientTest {
 		
 		Filme filme = new Filme("Joker");
 		
-		Optional<DetalhesDoFilme> detalhe = client.request(filme);
+		Optional<DetalhesDoFilme> detalhe = client.request(filme, DetalhesDoFilme.class);
 		
 		Assert.assertNotNull(detalhe);
 		Assert.assertEquals("Joker", detalhe.get().getTitulo());
@@ -31,7 +31,7 @@ public class OmdbClientTest {
 		
 		Filme filme = new Filme("Joker");
 		
-		Optional<DetalhesDoFilme> detalhe = client.request(filme);
+		Optional<DetalhesDoFilme> detalhe = client.request(filme, DetalhesDoFilme.class);
 		
 		Assert.assertFalse(detalhe.isPresent());		
 	}

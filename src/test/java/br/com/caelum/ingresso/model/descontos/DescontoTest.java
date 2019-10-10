@@ -17,9 +17,7 @@ public class DescontoTest {
 	
 	@Before
 	public void setUp() {
-		
-		
-		
+			
 	}
 	
 	@Test

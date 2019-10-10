@@ -9,6 +9,6 @@ public class RestTemplateFaker extends RestTemplate {
 	public <T> T getForObject(String url, Class<T> responseType, Object... uriVariables) throws RestClientException {
 		// TODO Auto-generated method stub
 		System.out.println("Passei aqui!");
-		return null;
+		throw new RestClientException("erro");
 	}
 }
